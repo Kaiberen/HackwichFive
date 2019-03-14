@@ -31,7 +31,19 @@ class ViewController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
         
+        
     }
     
+    @IBOutlet var slider: UISlider!
+    var currentValue: int = 0
+    
+    @IBAction func sliderHasMoved(_ sender: Any) {
+        print("The Value of the slider:\(slider.value)")
+        currentValue = lroundf(slider.value)
+    }
+    @IBAction func myGuessButtonPressed(_ sender: Any) {
+        let message = "The value is:\(currentValue)"
+        let alert = UIAlertController(title:"Hello World!", message: message, prefferedStyle: .alert)
+    }
 }
 
